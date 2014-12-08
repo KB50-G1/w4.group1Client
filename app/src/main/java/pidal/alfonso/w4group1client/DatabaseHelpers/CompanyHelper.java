@@ -25,8 +25,10 @@ public class CompanyHelper extends DatabaseHelper {
     public static final String KEY_NAME = "name";
     public static final String KEY_WEBSITE = "website";
 
+
     public CompanyHelper(Context context) {
         super(context);
+
     }
 
     // Adds a company instance.

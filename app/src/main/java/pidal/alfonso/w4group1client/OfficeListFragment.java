@@ -8,6 +8,10 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 
+import java.util.List;
+
+import pidal.alfonso.w4group1client.DatabaseHelpers.OfficeHelper;
+import pidal.alfonso.w4group1client.Models.Office;
 import pidal.alfonso.w4group1client.dummy.DummyContent;
 
 /**
@@ -72,11 +76,19 @@ public class OfficeListFragment extends ListFragment {
         super.onCreate(savedInstanceState);
 
         // TODO: replace with a real list adapter.
-        setListAdapter(new ArrayAdapter<DummyContent.DummyItem>(
+        /*setListAdapter(new ArrayAdapter<DummyContent.DummyItem>(
                 getActivity(),
                 android.R.layout.simple_list_item_activated_1,
                 android.R.id.text1,
-                DummyContent.ITEMS));
+                DummyContent.ITEMS));*/
+
+        OfficeHelper officeHelper = new OfficeHelper(getActivity());
+        List<Office> listOffice = officeHelper.getAllOffices();
+        setListAdapter(new ArrayAdapter<Office>(
+                getActivity(),
+                android.R.layout.simple_list_item_1,
+                android.R.id.text1,
+                listOffice));
     }
 
     @Override

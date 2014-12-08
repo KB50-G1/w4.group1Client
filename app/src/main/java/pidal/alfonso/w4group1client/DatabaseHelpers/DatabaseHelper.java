@@ -8,7 +8,7 @@ import android.net.Uri;
 /**
  * Created by Sjoerd Thijsse on 12/5/2014.
  */
-public class DatabaseHelper extends SQLiteOpenHelper{
+public class DatabaseHelper extends SQLiteOpenHelper {
 
     protected Context context;
     protected SQLiteDatabase db;
@@ -25,6 +25,7 @@ public class DatabaseHelper extends SQLiteOpenHelper{
 
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
+        this.context = context;
     }
 
 

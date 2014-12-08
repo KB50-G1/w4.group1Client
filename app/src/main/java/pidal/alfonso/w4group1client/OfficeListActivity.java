@@ -6,7 +6,10 @@ import android.app.Activity;
 import android.widget.Toast;
 
 import pidal.alfonso.w4group1client.DatabaseHelpers.CompanyHelper;
+import pidal.alfonso.w4group1client.DatabaseHelpers.OfficeHelper;
 import pidal.alfonso.w4group1client.Models.Company;
+import pidal.alfonso.w4group1client.Models.Office;
+import pidal.alfonso.w4group1client.Models.OfficeType;
 
 
 /**
@@ -28,6 +31,7 @@ import pidal.alfonso.w4group1client.Models.Company;
 public class OfficeListActivity extends Activity
         implements OfficeListFragment.Callbacks {
 
+    private OfficeHelper officeHelper;
     private CompanyHelper companyHelper;
 
     /**
@@ -41,13 +45,16 @@ public class OfficeListActivity extends Activity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_office_list);
 
-        companyHelper = new CompanyHelper(this);
+        /*companyHelper = new CompanyHelper(this);
+        officeHelper = new OfficeHelper(this);
 
-        Company company = new Company(1, "name", "website");
+        Company company = new Company("name", "website");
+        Office office = new Office(1, "address", OfficeType.REGULAR, company);
 
         companyHelper.addCompany(company);
-        Company returnCompany = companyHelper.getCompany(1);
-        Toast.makeText(this, returnCompany.toString(), Toast.LENGTH_LONG).show();
+        officeHelper.addOffice(office);
+        *//*Company returnCompany = companyHelper.getCompany(1);
+        Toast.makeText(this, returnCompany.toString(), Toast.LENGTH_LONG).show();*/
 
         if (findViewById(R.id.office_detail_container) != null) {
             // The detail container view will be present only in the
