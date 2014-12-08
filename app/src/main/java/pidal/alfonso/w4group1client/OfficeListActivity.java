@@ -45,7 +45,7 @@ public class OfficeListActivity extends Activity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_office_list);
 
-        /*
+
         companyHelper = new CompanyHelper(this);
         officeHelper = new OfficeHelper(this);
 
@@ -54,7 +54,7 @@ public class OfficeListActivity extends Activity
 
         companyHelper.addCompany(company);
         officeHelper.addOffice(office);
-        */
+
 
         /*
         Company returnCompany = companyHelper.getCompany(1);

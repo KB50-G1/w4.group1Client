@@ -1,10 +1,33 @@
-<fragment xmlns:android="http://schemas.android.com/apk/res/android"
-          xmlns:tools="http://schemas.android.com/tools"
-          android:id="@+id/office_list"
-          android:name="pidal.alfonso.w4group1client.OfficeListFragment"
-          android:layout_width="match_parent"
-          android:layout_height="match_parent"
-          android:layout_marginLeft="16dp"
-          android:layout_marginRight="16dp"
-          tools:context=".OfficeListActivity"
-          tools:layout="@android:layout/list_content"/>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".OfficeListActivity">
+
+
+    <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/office_list"
+        android:name="pidal.alfonso.w4group1client.OfficeListFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        tools:context=".OfficeListActivity"
+        tools:layout="@android:layout/list_content" />
+
+    <ImageButton
+        android:id="@+id/runCommand"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:layout_gravity="end|bottom"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="16dp"
+        android:tint="@android:color/white"
+        android:src="@android:drawable/ic_input_add"
+        android:background="@drawable/oval"
+        tools:ignore="RtlCompat" />
+</FrameLayout>
+
+
