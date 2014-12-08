@@ -39,10 +39,14 @@ public class OfficeDetailActivity extends Activity {
             // Create the detail fragment and add it to the activity
             // using a fragment transaction.
             Bundle arguments = new Bundle();
+
             arguments.putString(OfficeDetailFragment.ARG_ITEM_ID,
                     getIntent().getStringExtra(OfficeDetailFragment.ARG_ITEM_ID));
+
             OfficeDetailFragment fragment = new OfficeDetailFragment();
+
             fragment.setArguments(arguments);
+
             getFragmentManager().beginTransaction()
                     .add(R.id.office_detail_container, fragment)
                     .commit();

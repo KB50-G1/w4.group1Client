@@ -80,7 +80,7 @@ public class OfficeHelper extends DatabaseHelper {
         CursorLoader cursorLoader = new CursorLoader(
                 context,
                 allOffices, null, null, null,
-                KEY_ADDRESS + " desc");
+                KEY_OFFICE_ID + " asc");
         c = cursorLoader.loadInBackground();
 
         if (c.moveToFirst()) {

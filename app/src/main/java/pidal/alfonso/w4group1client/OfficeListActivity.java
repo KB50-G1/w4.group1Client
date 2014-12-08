@@ -45,16 +45,21 @@ public class OfficeListActivity extends Activity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_office_list);
 
-        /*companyHelper = new CompanyHelper(this);
+        /*
+        companyHelper = new CompanyHelper(this);
         officeHelper = new OfficeHelper(this);
 
         Company company = new Company("name", "website");
-        Office office = new Office(1, "address", OfficeType.REGULAR, company);
+        Office office = new Office(1, "adsdsda" + Integer.toString((int)Math.random()), OfficeType.REGULAR, company);
 
         companyHelper.addCompany(company);
         officeHelper.addOffice(office);
-        *//*Company returnCompany = companyHelper.getCompany(1);
-        Toast.makeText(this, returnCompany.toString(), Toast.LENGTH_LONG).show();*/
+        */
+
+        /*
+        Company returnCompany = companyHelper.getCompany(1);
+        Toast.makeText(this, returnCompany.toString(), Toast.LENGTH_LONG).show();
+        */
 
         if (findViewById(R.id.office_detail_container) != null) {
             // The detail container view will be present only in the

@@ -1,14 +1,14 @@
 package pidal.alfonso.w4group1client;
 
-import android.os.Bundle;
 import android.app.Fragment;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-
-import pidal.alfonso.w4group1client.dummy.DummyContent;
+import pidal.alfonso.w4group1client.DatabaseHelpers.OfficeHelper;
+import pidal.alfonso.w4group1client.Models.Office;
 
 /**
  * A fragment representing a single Office detail screen.
@@ -26,7 +26,7 @@ public class OfficeDetailFragment extends Fragment {
     /**
      * The dummy content this fragment is presenting.
      */
-    private DummyContent.DummyItem mItem;
+    private Office office;
 
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
@@ -43,7 +43,9 @@ public class OfficeDetailFragment extends Fragment {
             // Load the dummy content specified by the fragment
             // arguments. In a real-world scenario, use a Loader
             // to load content from a content provider.
-            mItem = DummyContent.ITEM_MAP.get(getArguments().getString(ARG_ITEM_ID));
+
+            // Get the office with the id we get from the intent or argument. (It's a string!!)
+            office = new OfficeHelper(getActivity()).getOffice(Integer.parseInt(getArguments().getString(ARG_ITEM_ID)));
         }
     }
 
@@ -52,9 +54,11 @@ public class OfficeDetailFragment extends Fragment {
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_office_detail, container, false);
 
-        // Show the dummy content as text in a TextView.
-        if (mItem != null) {
-            ((TextView) rootView.findViewById(R.id.office_detail)).setText(mItem.content);
+        // Show the office content as text.
+        if (office != null) {
+            ((TextView) rootView.findViewById(R.id.office_detail_id)).setText(Integer.toString(office.getOfficeID()));
+            ((TextView) rootView.findViewById(R.id.office_detail_address)).setText(office.getAddress());
+            ((TextView) rootView.findViewById(R.id.office_detail_phone)).setText(Integer.toString(office.getPhoneNumber()));
         }
 
         return rootView;
