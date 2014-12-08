@@ -4,7 +4,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.app.Activity;
 import android.support.v4.app.NavUtils;
+import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
+
+import pidal.alfonso.w4group1client.DatabaseHelpers.OfficeHelper;
 
 
 /**
@@ -68,5 +73,26 @@ public class OfficeDetailActivity extends Activity {
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    public void editOfficeDetails(View view) {
+
+        // TODO: Display pre-populated dialog box with fields.
+
+    }
+
+    public void removeOfficeDetails(View view) {
+
+        OfficeHelper officeHelper = new OfficeHelper(this);
+
+        TextView office = (TextView) findViewById(R.id.office_detail_id);
+
+        int officeid = Integer.parseInt(office.getText().toString());
+
+        Log.d("DELETE", "Trying to delete office with id: " + Integer.toString(officeid));
+        officeHelper.deleteOffice(officeHelper.getOffice(officeid));
+
+        // TODO: go back to main and update list.
+
     }
 }
