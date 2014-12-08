@@ -3,6 +3,10 @@ package pidal.alfonso.w4group1client;
 import android.content.Intent;
 import android.os.Bundle;
 import android.app.Activity;
+import android.widget.Toast;
+
+import pidal.alfonso.w4group1client.DatabaseHelpers.CompanyHelper;
+import pidal.alfonso.w4group1client.Models.Company;
 
 
 /**
@@ -24,6 +28,8 @@ import android.app.Activity;
 public class OfficeListActivity extends Activity
         implements OfficeListFragment.Callbacks {
 
+    private CompanyHelper companyHelper;
+
     /**
      * Whether or not the activity is in two-pane mode, i.e. running on a tablet
      * device.
@@ -34,6 +40,14 @@ public class OfficeListActivity extends Activity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_office_list);
+
+        companyHelper = new CompanyHelper(this);
+
+        Company company = new Company(1, "name", "website");
+
+        companyHelper.addCompany(company);
+        Company returnCompany = companyHelper.getCompany(1);
+        Toast.makeText(this, returnCompany.toString(), Toast.LENGTH_LONG).show();
 
         if (findViewById(R.id.office_detail_container) != null) {
             // The detail container view will be present only in the
