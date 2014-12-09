@@ -13,7 +13,7 @@ import pidal.alfonso.w4group1client.Models.Office;
 import pidal.alfonso.w4group1client.Models.OfficeType;
 
 
-public class EditOfficeActivity extends Activity{
+public class EditOfficeActivity extends Activity {
 
     private Office office;
 
@@ -40,7 +40,18 @@ public class EditOfficeActivity extends Activity{
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         officeType.setAdapter(adapter);
 
-        officeType.setOnItemClickListener(new SpinnerActivity());
+        officeType.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                office.setOfficeType(OfficeType.valueOf(parent.getItemAtPosition(position).toString()));
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
 
         officeIDintent = getIntent().getIntExtra(OfficeListActivity.IDintent, 0);
         if (officeIDintent != 0) {
@@ -59,6 +70,7 @@ public class EditOfficeActivity extends Activity{
             office.setPhoneNumber(Integer.parseInt(phoneNumber.getText().toString()));
             office.setAddress(address.getText().toString());
             //office.setOfficeType(OfficeType.valueOf(officeType.getText().toString()));
+
             OfficeListActivity.officeHelper.updateOffice(office);
         } else {
             office = new Office();
@@ -66,6 +78,7 @@ public class EditOfficeActivity extends Activity{
             office.setPhoneNumber(Integer.parseInt(phoneNumber.getText().toString()));
             office.setAddress(address.getText().toString());
             //office.setOfficeType(OfficeType.valueOf(officeType.getText().toString()));
+
             office.setCompany(new Company(1, "Alber", "https://www.google.com"));
             OfficeListActivity.officeHelper.addOffice(office);
         }
