@@ -2,43 +2,99 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginTop="16dp"
     android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/office_detail_id"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:padding="16dp"
-        android:textIsSelectable="true"
-        tools:context=".OfficeDetailFragment" />
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_marginBottom="20dp">
 
-    <TextView
-        android:id="@+id/office_detail_address"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="16dp"
-        android:textIsSelectable="true" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="25sp"
+            android:text="Office ID:" />
 
-    <TextView
-        android:id="@+id/office_detail_phone"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="16dp"
-        android:textIsSelectable="true" />
+        <TextView
+            android:id="@+id/office_detail_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:textIsSelectable="true"
+            tools:context=".OfficeDetailFragment"
+            android:text="DummyText" />
+    </LinearLayout>
 
-    <TextView
-        android:id="@+id/office_detail_type"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:padding="16dp"
-        android:textIsSelectable="true" />
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_marginBottom="20dp">
 
-    <TextView
-        android:id="@+id/office_detail_company"
-        android:layout_width="wrap_content"
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="25sp"
+            android:text="Address:" />
+
+        <TextView
+            android:id="@+id/office_detail_address"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:textIsSelectable="true"
+            android:text="DummyText" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:padding="16dp"
-        android:textIsSelectable="true" />
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_marginBottom="20dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="25sp"
+            android:text="Phonenumber:" />
+
+        <TextView
+            android:id="@+id/office_detail_phone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:textIsSelectable="true"
+            android:text="DummyText"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_marginBottom="20dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="25sp"
+            android:text="Office type:" />
+
+        <TextView
+            android:id="@+id/office_detail_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:textIsSelectable="true"
+            android:text="DummyText"/>
+
+    </LinearLayout>
+
 
 
     <LinearLayout

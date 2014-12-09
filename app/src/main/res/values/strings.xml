@@ -17,4 +17,12 @@
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
 
+    <string-array name="office_types">
+        <item>REGULAR</item>
+        <item>TOGO</item>
+        <item>EXTRA_LARGE</item>
+    </string-array>
+
+    <string name="title_activity_spinner">SpinnerActivity</string>
+
 </resources>

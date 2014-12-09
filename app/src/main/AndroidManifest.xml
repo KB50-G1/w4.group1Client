@@ -28,6 +28,10 @@
             android:name=".EditOfficeActivity"
             android:label="@string/title_activity_edit_office" >
         </activity>
+        <activity
+            android:name=".SpinnerActivity"
+            android:label="@string/title_activity_spinner" >
+        </activity>
     </application>
 
 </manifest>
