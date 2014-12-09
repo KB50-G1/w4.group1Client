@@ -1,6 +1,8 @@
 package pidal.alfonso.w4group1client;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -8,7 +10,8 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
 
-import pidal.alfonso.w4group1client.Models.Company;
+import pidal.alfonso.w4group1client.DatabaseHelpers.CompanyHelper;
+import pidal.alfonso.w4group1client.DatabaseHelpers.OfficeHelper;
 import pidal.alfonso.w4group1client.Models.Office;
 import pidal.alfonso.w4group1client.Models.OfficeType;
 
@@ -16,6 +19,8 @@ import pidal.alfonso.w4group1client.Models.OfficeType;
 public class EditOfficeActivity extends Activity {
 
     private Office office;
+    private CompanyHelper companyHelper;
+    private OfficeHelper officeHelper;
 
     private EditText phoneNumber;
     private EditText address;
@@ -28,6 +33,9 @@ public class EditOfficeActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_office);
 
+        companyHelper = new CompanyHelper(this);
+        officeHelper = new OfficeHelper(this);
+
         phoneNumber = (EditText) findViewById(R.id.phone_number_edit_text);
         address = (EditText) findViewById(R.id.address_edit_text);
         officeType = (Spinner) findViewById(R.id.office_type_spinner);
@@ -39,6 +47,8 @@ public class EditOfficeActivity extends Activity {
 
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         officeType.setAdapter(adapter);
+
+        office = new Office();
 
         officeType.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -55,35 +65,58 @@ public class EditOfficeActivity extends Activity {
 
         officeIDintent = getIntent().getIntExtra(OfficeListActivity.IDintent, 0);
         if (officeIDintent != 0) {
-            office = OfficeListActivity.officeHelper.getOffice(officeIDintent);
-
+            office = officeHelper.getOffice(officeIDintent);
 
             phoneNumber.setText(Integer.toString(office.getPhoneNumber()));
             address.setText(office.getAddress());
-            //officeType.setText(office.getOfficeType().toString());
         }
 
     }
 
     public void saveOffice(View view) {
         if (officeIDintent != 0) {
-            office.setPhoneNumber(Integer.parseInt(phoneNumber.getText().toString()));
-            office.setAddress(address.getText().toString());
-            //office.setOfficeType(OfficeType.valueOf(officeType.getText().toString()));
+            if (phoneNumber.getText().toString().matches("") && address.getText().toString().matches("")) {
+                // TODO: dialog box to prompt user
+                this.InvalidDialogBox()
+                ;
+            } else {
+                office.setPhoneNumber(Integer.parseInt(phoneNumber.getText().toString()));
+                office.setAddress(address.getText().toString());
 
-            OfficeListActivity.officeHelper.updateOffice(office);
+                officeHelper.updateOffice(office);
+
+                this.finish();
+            }
+
         } else {
-            office = new Office();
+            if (phoneNumber.getText().toString().matches("") && address.getText().toString().matches("")) {
+                // TODO: dialog box to prompt user
+                this.InvalidDialogBox();
+            } else {
 
-            office.setPhoneNumber(Integer.parseInt(phoneNumber.getText().toString()));
-            office.setAddress(address.getText().toString());
-            //office.setOfficeType(OfficeType.valueOf(officeType.getText().toString()));
+                office.setPhoneNumber(Integer.parseInt(phoneNumber.getText().toString()));
+                office.setAddress(address.getText().toString());
 
-            office.setCompany(new Company(1, "Alber", "https://www.google.com"));
-            OfficeListActivity.officeHelper.addOffice(office);
+                office.setCompany(companyHelper.getCompany(1));
+                officeHelper.addOffice(office);
+
+                this.finish();
+            }
         }
-        this.finish();
     }
 
+
+    private void InvalidDialogBox() {
+        new AlertDialog.Builder(this)
+                .setTitle("Error")
+                .setMessage("Invalid address and/or phonenumber")
+                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+                    }
+                })
+                .setIcon(android.R.drawable.ic_dialog_alert)
+                .show();
+    }
 
 }

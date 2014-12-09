@@ -17,7 +17,7 @@ import pidal.alfonso.w4group1client.Models.Office;
 
 public class OfficeListActivity extends ListActivity {
 
-    protected static OfficeHelper officeHelper;
+    private OfficeHelper officeHelper;
 
     List<Office> officeList;
 
@@ -26,7 +26,7 @@ public class OfficeListActivity extends ListActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        // setContentView(R.layout.activity_office_list);
+//        setContentView(R.layout.activity_office_list);
 
         officeHelper = new OfficeHelper(this);
 

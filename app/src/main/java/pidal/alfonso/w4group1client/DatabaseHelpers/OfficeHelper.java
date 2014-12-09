@@ -39,10 +39,10 @@ public class OfficeHelper extends DatabaseHelper {
         db = this.getWritableDatabase();
 
         ContentValues initialValues = new ContentValues();
-        //initialValues.put(KEY_OFFICE_ID, office.getOfficeID());
         initialValues.put(KEY_PHONE_NUMBER, office.getPhoneNumber());
         initialValues.put(KEY_ADDRESS, office.getAddress());
         initialValues.put(KEY_OFFICE_TYPE, office.getOfficeType().toString());
+
         initialValues.put(CompanyHelper.KEY_COMPANY_ID, office.getCompany().getCompanyID());
 
         context.getContentResolver().insert(DatabaseHelper.CONTENT_URI_OFFICE, initialValues);
