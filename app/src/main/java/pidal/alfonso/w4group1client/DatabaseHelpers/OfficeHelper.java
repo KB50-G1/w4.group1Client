@@ -39,6 +39,7 @@ public class OfficeHelper extends DatabaseHelper {
         db = this.getWritableDatabase();
 
         ContentValues initialValues = new ContentValues();
+        //initialValues.put(KEY_OFFICE_ID, office.getOfficeID());
         initialValues.put(KEY_PHONE_NUMBER, office.getPhoneNumber());
         initialValues.put(KEY_ADDRESS, office.getAddress());
         initialValues.put(KEY_OFFICE_TYPE, office.getOfficeType().toString());
@@ -63,6 +64,7 @@ public class OfficeHelper extends DatabaseHelper {
         if (c.moveToFirst()) {
             office = new Office();
             office.setOfficeID(Integer.parseInt(c.getString(c.getColumnIndex(KEY_OFFICE_ID))));
+            office.setPhoneNumber(Integer.parseInt(c.getString(c.getColumnIndex(KEY_PHONE_NUMBER))));
             office.setAddress(c.getString(c.getColumnIndex(KEY_ADDRESS)));
             office.setOfficeType(OfficeType.valueOf(c.getString(c.getColumnIndex(KEY_OFFICE_TYPE))));
             office.setCompany(companyHelper.getCompany(Integer.parseInt(c.getString(c.getColumnIndex(CompanyHelper.KEY_COMPANY_ID)))));
@@ -87,6 +89,7 @@ public class OfficeHelper extends DatabaseHelper {
             do {
                 Office office = new Office();
                 office.setOfficeID(Integer.parseInt(c.getString(c.getColumnIndex(KEY_OFFICE_ID))));
+                office.setPhoneNumber(Integer.parseInt(c.getString(c.getColumnIndex(KEY_PHONE_NUMBER))));
                 office.setAddress(c.getString(c.getColumnIndex(KEY_ADDRESS)));
                 office.setOfficeType(OfficeType.valueOf(c.getString(c.getColumnIndex(KEY_OFFICE_TYPE))));
                 office.setCompany(companyHelper.getCompany(Integer.parseInt(c.getString(c.getColumnIndex(CompanyHelper.KEY_COMPANY_ID)))));

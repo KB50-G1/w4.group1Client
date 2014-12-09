@@ -71,6 +71,17 @@ public class Office {
 
     @Override
     public String toString() {
-        return address;
+        return "Office{" +
+                "officeID=" + officeID +
+                ", phoneNumber=" + phoneNumber +
+                ", address='" + address + '\'' +
+                ", officeType=" + officeType +
+                ", company=" + company +
+                '}';
     }
+/*
+    @Override
+    public String toString() {
+        return address;
+    }*/
 }

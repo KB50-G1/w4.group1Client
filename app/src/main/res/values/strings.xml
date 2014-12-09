@@ -3,5 +3,18 @@
 
     <string name="app_name">w4.group1Client</string>
     <string name="title_office_detail">Office Detail</string>
+    <string name="phonenumber_hint">Phonenumber</string>
+    <string name="phonenumber_textview">Phonenumber:</string>
+    <string name="address_hint">Address</string>
+    <string name="address_textview">Address:</string>
+    <string name="office_type_hint">Office type</string>
+    <string name="office_type_textview">Office type:</string>
+    <string name="company_name_hint">Company name</string>
+    <string name="company_name_textview">Company name:</string>
+    <string name="update">Update</string>
+    <string name="cancel">Cancel</string>
+    <string name="title_activity_edit_office">EditOfficeActivity</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
 
 </resources>
